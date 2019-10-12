@@ -1,4 +1,4 @@
-print "***********************************************************************************************************************"
+#This game is to be run in Python 3, preferably using the Command Line for best performance.
 print "\t\t\t\t\t\tWELCOME TO THE GAME OF MINDS"
 print "***********************************************************************************************************************"
 print "Following are the rules of the game:"
@@ -43,27 +43,27 @@ def check(xyz):
 def start1(name):
 	xyz = []
 	last = 0
-	print "Enter 'F' to take the first chance."
-	print "Enter 'S' to take the second chance."
+	print "Enter 'Y' if you'd like to go first."
+	print "Enter 'N' if you'd like to go second."
 	chance = raw_input('> ')
-	if chance == "F":
+	if chance == "Y":
 		while True:
 			if last == 20:
 				lose1(name)
 			else:
 				print name,
 				print ", your turn."
-				print "How many numbers do you wish to enter?"
+				print "How many numbers do you wish to enter? Please be sensible and enter either 1, 2, or 3."
 				input = int(raw_input('> '))
 				if input > 0 and input <= 3:
 					comp = 4 - input
 				else:
-					print "Wrong input. You are disqualified from the game."
+					print "You'd better learn counting first. Goodbye!!"
 					lose1(name)
 		
 				i = 1
 				j = 1
-				print "Now enter the values"
+				print "Enter the values. Again, sensibility is mandatory."
 				while i <= input:
 					xyz.append(int(raw_input('> ')))
 					i = i + 1
@@ -76,14 +76,14 @@ def start1(name):
 						while j <= comp:
 							xyz.append(last + j)
 							j = j + 1
-						print "Here's the order of inputs:"
+						print "This is what you entered:"
 						print xyz
 						last = xyz[-1]
 				else:
 					print "\nYou did not input consecutive integers."
-					print "You are disqualified from the game."
+					print "Goodbye, loser!!."
 					lose1(name)
-	elif chance == "S":
+	elif chance == "N":
 		comp = 1
 		last = 0
 		while last < 20:
